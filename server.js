@@ -8,15 +8,19 @@ const app = express();
 app.use(express.static('public'));                  //used public folder for client side
 
 app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/index.html')) //targets the public folder within this repo 
+    res.sendFile(path.join(__dirname, '/public/index.html'))    // targets the index page be sent and loaded
 );
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/notes.html'))    // targets the page for notes to be sent and loaded on request
+});
 
 app.listen(PORT, () => console.log(`listening at ${PORT}`));
 // GIVEN a note-taking application
 // WHEN I open the Note Taker               X
 // THEN I am presented with a landing page with a link to a notes page          X
 // WHEN I click on the link to the notes page           X
-// THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
+// THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column     X
 // WHEN I enter a new note title and the note’s text
 // THEN a Save icon appears in the navigation at the top of the page
 // WHEN I click on the Save icon
