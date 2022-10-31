@@ -3,7 +3,8 @@ const { readFromFile, readAndAppend } = require('../helpers/fsUtils');          
 const uuid = require('../helpers/uuid');                                            // unique id
 
 notes.get('/', (req, res) => {
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));        // reads the database
+    readFromFile('./db/db.json')
+    .then((data) => res.json(JSON.parse(data)));        // reads the database
 });
 
 notes.post('/', (req, res) => {                                                     // posts new notes
@@ -13,7 +14,7 @@ notes.post('/', (req, res) => {                                                 
         const newNote = {
             title,
             text,
-            tip_id: uuid(),
+            id: uuid(),
         };
         readAndAppend(newNote, './db/db.json');
         const response = {
@@ -27,7 +28,18 @@ notes.post('/', (req, res) => {                                                 
 });
 
 notes.delete('/:id', (req, res) => {
+    const target = req.params.id
     
+    
+    readFromFile('./db/db.json')
+    .then(
+        console.log(target)
+    )
+    // read the selected obj for the id
+    // find the id in the database
+    // target the unique id
+    // remove from array
+    // save and replace
     
 })
 module.exports = notes;
