@@ -6,7 +6,7 @@ notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));        // reads the database
 });
 
-notes.post('/', (req, res) => {                                                // posts new notes
+notes.post('/', (req, res) => {                                                     // posts new notes
     const { title, text } = req.body;
     console.log(req.body);
     if (req.body) {
@@ -26,4 +26,8 @@ notes.post('/', (req, res) => {                                                /
     };
 });
 
+notes.delete('/:id', (req, res) => {
+    
+    
+})
 module.exports = notes;
