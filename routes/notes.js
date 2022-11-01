@@ -36,8 +36,13 @@ notes.delete('/:id', (req, res) => {
             throw console.error(err);
         } else {
             const targetNote = JSON.parse(data);
-            console.log(target);
-            console.log(targetNote);
+            for (let i=0; i<targetNote.length; i++){
+                if (targetNote[i].id === target){
+                    console.log('found it')
+                } else {
+                    console.log('not yet')
+                }
+            }
         }
 
     })
