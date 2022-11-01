@@ -28,21 +28,21 @@ notes.post('/', (req, res) => {                                                 
 });
 
 notes.delete('/:id', (req, res) => {
-    const target = req.params.id
+    const target = req.params.id            // selected elements id
 
 
     read('./db/db.json', 'utf8', (err, data) => {
         if (err) {
             throw console.error(err);
         } else {
-            const notes = JSON.parse(data);
+            const notes = JSON.parse(data);             // gets the current list from the server and parses it to be read
             for (let i=0; i<notes.length; i++){
                 if (notes[i].id === target){
-                    notes.splice([i], 1);
-                    writeToFile('./db/db.json', notes);
+                    notes.splice([i], 1);               // removes the note based on if its id matches the selected id
+                    writeToFile('./db/db.json', notes); // updates the notes in the api
                 };
             };
-            res.json('notes updated');
+            res.json('notes updated');                  // sends response to finish fetch
         }
     }) 
 })
