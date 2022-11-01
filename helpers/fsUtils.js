@@ -2,6 +2,7 @@ const fs = require('fs');
 const util = require('util');
 
 const readFromFile = util.promisify(fs.readFile);  //read promise
+const read = fs.readFile;
 
 const writeToFile = (destination, content) => {
     fs.writeFile(destination, JSON.stringify(content, null, 4), (err) => {
@@ -21,4 +22,4 @@ const readAndAppend = (content, file) => {
     });
 };
 
-module.exports = { readFromFile, writeToFile, readAndAppend };
+module.exports = { readFromFile, writeToFile, readAndAppend, read };

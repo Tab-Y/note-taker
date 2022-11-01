@@ -1,5 +1,5 @@
 const notes = require('express').Router();                                          // route
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');              // read and create files
+const { readFromFile, readAndAppend, readingFile, read } = require('../helpers/fsUtils');              // read and create files
 const uuid = require('../helpers/uuid');                                            // unique id
 
 notes.get('/', (req, res) => {
@@ -29,12 +29,21 @@ notes.post('/', (req, res) => {                                                 
 
 notes.delete('/:id', (req, res) => {
     const target = req.params.id
+
+
+    read('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            throw console.error(err);
+        } else {
+            const targetNote = JSON.parse(data);
+            console.log(target);
+            console.log(targetNote);
+        }
+
+    })
     
     
-    readFromFile('./db/db.json')
-    .then(
-        console.log(target)
-    )
+
     // read the selected obj for the id
     // find the id in the database
     // target the unique id
