@@ -41,7 +41,8 @@ notes.delete('/:id', (req, res) => {
                     notes.splice([i], 1);
                     writeToFile('./db/db.json', notes);
                 };
-            }
+            };
+            res.json('notes updated');
         }
     }) 
 })
