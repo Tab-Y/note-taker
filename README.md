@@ -3,7 +3,8 @@
 
 ## Description 
 
-will add later
+This is a project to make and save notes on a server. It allows the notes to be created on one device, and pulled up on another.
+Allowing the user to add to, remove from, and update notes as they need.
  
 ## Table of Contents
  
@@ -11,20 +12,20 @@ will add later
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
-- [Badges](#badges)
-- [Features](#features)
 - [Questions](#questions)
-- [Tests](#tests) 
+
 
 ##  Installation 
 
-will add later 
+n/a
 
 ## Usage 
 
-will add later 
+https://creepy-demon-68174.herokuapp.com/notes
 
-![Descriptive text](assets/images/screenshot.png) 
+![Screenshot of homepage](./assets/img/index-screenshot.png) 
+![Screenshot of notes page](./assets/img/notes-screenshot.png) 
+
 
 ## Credits 
 
@@ -36,19 +37,7 @@ MIT License
 Please refer to License in repository.  
  
 
-## Badges 
-
-Add badges to this section 
-
-## Features 
-
-Add features to this space 
-
 ## Questions 
 
 If you have any questions or concerns, please reach out to Tab-Y at tlyoumans@gmail.com. 
-
-## Tests 
-
-test with jest 
 
