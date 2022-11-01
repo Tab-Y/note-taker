@@ -1,5 +1,5 @@
 const notes = require('express').Router();                                          // route
-const { readFromFile, readAndAppend, readingFile, read } = require('../helpers/fsUtils');              // read and create files
+const { readFromFile, readAndAppend, readingFile, read, writeToFile } = require('../helpers/fsUtils');              // read and create files
 const uuid = require('../helpers/uuid');                                            // unique id
 
 notes.get('/', (req, res) => {
@@ -35,25 +35,14 @@ notes.delete('/:id', (req, res) => {
         if (err) {
             throw console.error(err);
         } else {
-            const targetNote = JSON.parse(data);
-            for (let i=0; i<targetNote.length; i++){
-                if (targetNote[i].id === target){
-                    console.log('found it')
-                } else {
-                    console.log('not yet')
-                }
+            const notes = JSON.parse(data);
+            for (let i=0; i<notes.length; i++){
+                if (notes[i].id === target){
+                    notes.splice([i], 1);
+                    writeToFile('./db/db.json', notes);
+                };
             }
         }
-
-    })
-    
-    
-
-    // read the selected obj for the id
-    // find the id in the database
-    // target the unique id
-    // remove from array
-    // save and replace
-    
+    }) 
 })
 module.exports = notes;
